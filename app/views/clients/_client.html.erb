@@ -1,0 +1,47 @@
+<div id="<%= dom_id client %>">
+  <p>
+    <strong>Name:</strong>
+    <%= client.name %>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <%= client.phone %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= client.email %>
+  </p>
+
+  <form role="form" class="php-email-form">
+          <h3>Listado de llamadas</h3>
+					<div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Operador</th>
+                <th>Fecha</th>
+                <th>Motivo</th>
+                <th>Ver</th>
+              </tr>
+            </thead>  
+            <% @client.calls.each do |call| %> 
+            <tbody>
+              <tr>
+                <td><%= call.reason.name %></td>
+                <td><%= call.user.email %></td>
+                <td><%= call.created_at %></td>
+                <td><%= call.reason.name %></td>
+                <td><%= link_to "Detalle", call %></td>
+              </tr> 
+            </tbody> 
+            <% end %>  
+            </table>    
+          </div> 
+        </form>
+
+
+
+</div>
